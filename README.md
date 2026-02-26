@@ -106,5 +106,4 @@ Tutoriales de referencia:
 
  https://www.youtube.com/watch?v=Lcdc2v-9PjA&list=PLS5LyA6pzVvX5f-5_aThniWA3vuWLUA-4&index=2
 
- https://www.youtube.com/watch?v=6_N8QZ47toY&list=PLS5LyA6pzVvX5f-5_aThniWA3vuWLUA-4&index=4
 
