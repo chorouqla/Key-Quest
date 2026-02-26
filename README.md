@@ -9,87 +9,102 @@ los datos del nivel
 el dibujado en pantalla
 la interacción del jugador
 
-Actualmente el proyecto se centra exclusivamente en completar y pulir el Nivel 1.
-El Nivel 2 está planificado, pero no se desarrollará hasta finalizar completamente el Nivel 1.
+Seguimiento del Proyecto – Estado Parcial de Desarroll
 
-¿Qué he implementado en el Nivel 1?
-1: Sistema de estados del juego
+1. Tareas realizadas hasta el momento
+a) Estructura general del proyecto
 
-El juego funciona con distintos estados:
-menu → menú principal
-about → pantalla de instrucciones
-playing → jugando el nivel
-win → nivel completado
-Esto permite controlar fácilmente qué se dibuja y qué lógica se ejecuta en cada momento.
+Creación del proyecto base en HTML, CSS y JavaScript.
 
-2: Movimiento del jugador y físicas
-Movimiento horizontal con flechas izquierda/derecha
-Salto con flecha arriba
-Sistema de gravedad que afecta al jugador
-El jugador solo puede saltar si está en el suelo
-El jugador no se desliza por los bordes del agujero
-El jugador solo cae al agujero si está completamente dentro de él.
-Si solo una parte del jugador está sobre el suelo, no muere, evitando deslizamientos irreales.
+Estructura organizada de carpetas (assets, imágenes, etc.).
 
-3: Suelo, agujeros y plataformas
-El suelo se dibuja con huecos (agujeros)
-Los agujeros están definidos por datos del nivel
-Las plataformas (roofs) permiten saltar sobre obstáculos
-Las colisiones con plataformas están controladas manualmente
+Implementación del canvas y bucle principal del juego.
 
-4: Sistema de llave y puerta (lógica correcta)
-El jugador recoge la llave al tocarla
-La puerta NO se abre automáticamente
-La puerta solo se abre si:
-el jugador tiene la llave
-el jugador toca la puerta
-El jugador solo gana el nivel si está completamente delante de la puerta abierta
-Esto evita errores comunes como ganar el nivel solo por tocar la llave.
+b) Capítulo 1 (Nivel 1 – ya funcional)
 
-5: Sistema de vidas
-El jugador comienza con 3 vidas
-Pierde una vida si:
-cae completamente en un agujero
-toca un pincho (cuando se añadan)
-el tiempo se termina (cuando se añade)
-Si pierde todas las vidas:
-el juego se reinicia desde el menú
+Implementación del personaje principal.
+Sistema de movimiento (izquierda, derecha, salto).
+Sistema de gravedad y colisiones básicas.
+Plataforma principal y plataforma elevada (roof).
+Agujeros donde el jugador puede caer.
+Llave coleccionable.
+Puerta que solo se abre si el jugador tiene la llave.
+Condición de victoria cuando el jugador está frente a la puerta.
+Temporizador que reinicia el nivel al llegar a cero.
+Sistema básico de vidas.
+Integración inicial de imágenes (fondo, puerta, llave, personaje, suelo).
 
-6: Sistema de tiempo
-Cada nivel tiene un tiempo límite
-En el Nivel 1: 30 segundos
-Si el tiempo llega a 0:
-el nivel se reinicia
-se registra un fallo por tiempo
+⚠ Estado actual:
+El nivel 1 es funcional a nivel lógico, pero aún no está completamente ajustado gráficamente (alineaciones, proporciones, estética final).
 
-7: Datos del nivel separados de la lógica
-El Nivel 1 está definido en un objeto levels, lo que permite:
-cambiar el diseño del nivel sin tocar la lógica
-añadir más niveles fácilmente en el futuro
-como:
-posición de agujeros, plataformas, llave, tiempo límite
+c) Inicio del Capítulo 2 (Nuevo enfoque)
+Se comenzó el desarrollo de un segundo capítulo inspirado en un tutorial de plataforma vertical.
 
-8: Menús y UI
-Menú principal con botones (Start / About)
-Pantalla de instrucciones
-Pantalla de victoria con:
-vidas restantes
-tiempo restante
-Interacción tanto con teclado como con ratón
+Características en desarrollo:
+Plataformas verticales.
+Plataformas seguras.
+Plataformas con pinchos.
+Plataformas con gemas.
+Llave ubicada en la parte superior del mapa.
+Puerta final que se abre al conseguir la llave.
+Implementación futura de cámara con render dinámico (seguimiento del jugador).
+Mecánica donde el jugador debe recordar el camino correcto.
 
-¿Qué NO he hecho todavía (plan futuro)?
+Estado actual:
 
- Nivel 2:
-El código del Nivel 2 está comentado (no es completo)
-Empezaré a desarrollarlo solo cuando el Nivel 1 esté terminado visual y técnicamente
+Se está utilizando el programa Tiled para crear el mapa y las colisiones.
+Se ha iniciado la fase de creación del mapa.
 
-Gráficos e imágenes:
-Actualmente el juego usa rectángulos de colores
-Próximo paso es añadir sprites (jugador, puerta, llave, suelo...)
+El desarrollo está bloqueado en la parte de:
+Configuración de colisiones en Tiled.
+Exportación correcta del mapa.
+Integración del archivo generado con JavaScript.
+Conexión entre el sistema de colisiones de Tiled y el código del juego.
+Este punto es actualmente el principal bloqueo técnico.
 
-Sonidos:
-Sonidos de recoger llave, abrir puerta, perder vida, completar nivel, Música de fondo ligera
+3. Tareas pendientes
+Capítulo 1
 
-Mejora del diseño del menú:
-El menú funciona, pero el diseño es básico
-Se mejorará usando CSS y mejor composición visual
+Ajuste final de proporciones gráficas.
+Posible sistema simple de puntuación.
+Ajustes finales de experiencia de usuario.
+
+Capítulo 2
+
+Comprender y dominar el uso de Tiled.
+Configuración correcta de capas de colisión.
+Integración del mapa exportado con JavaScript.
+Implementación de la cámara dinámica.
+Sistema de gemas.
+Sistema de pinchos con daño.
+Integración completa del sistema de llave y puerta.
+Pruebas y balanceo de dificultad.
+
+General
+
+Integración narrativa que conecte ambos capítulos.
+Optimización del código.
+Limpieza y organización final del proyecto.
+Documentación básica del funcionamiento del juego.
+
+4. Problemas actuales que bloquean el desarrollo
+
+El principal problema técnico actual es:
+
+Dificultad en el uso del programa Tiled.
+Falta de experiencia previa con la creación de mapas y sistemas de colisión externos.
+Dudas sobre cómo conectar correctamente el archivo exportado por Tiled con la lógica JavaScript del juego.
+Incertidumbre sobre cómo estructurar correctamente esta parte para que el código principal funcione después.
+Este punto requiere orientación para poder continuar el desarrollo del Capítulo 2.
+
+5. Recursos utilizados
+   
+Tutoriales de referencia:
+ https://www.youtube.com/watch?v=rTVoyWu8r6g
+
+ https://www.youtube.com/watch?v=i57Gufe3dCk&list=PLS5LyA6pzVvX5f-5_aThniWA3vuWLUA-4
+
+ https://www.youtube.com/watch?v=Lcdc2v-9PjA&list=PLS5LyA6pzVvX5f-5_aThniWA3vuWLUA-4&index=2
+
+ https://www.youtube.com/watch?v=6_N8QZ47toY&list=PLS5LyA6pzVvX5f-5_aThniWA3vuWLUA-4&index=4
+
