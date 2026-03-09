@@ -8,6 +8,10 @@
 const canvas = document.querySelector("canvas")
 const c = canvas.getContext("2d")
 
+// Make canvas responsive
+canvas.style.width = '100%';
+canvas.style.height = 'auto';
+
 canvas.width = 1390
 canvas.height = 757
 
@@ -15,7 +19,7 @@ const gravity = 0.5
 const blockSize = 16  // Each block in the map is 16x16 pixels
 const mapWidth = 87
 
-let cameraOffset = { x: 0, y: 0 }
+// let cameraOffset = { x: 0, y: 0 }
 let hasKey = false
 let gemsCollected = 0
 let lives = 3
@@ -154,8 +158,10 @@ class Sprite {
         if (!this.image) return
         c.drawImage(
             this.image,
-            this.position.x - cameraOffset.x,
-            this.position.y - cameraOffset.y,
+            // this.position.x - cameraOffset.x,
+            // this.position.y - cameraOffset.y,
+            this.position.x,
+            this.position.y,
             this.width,
             this.height)
     }
@@ -178,8 +184,10 @@ class Player {
         if (this.image) {
             c.drawImage(
                 this.image,
-                this.position.x - cameraOffset.x,
-                this.position.y - cameraOffset.y,
+                // this.position.x - cameraOffset.x,
+                // this.position.y - cameraOffset.y,
+                this.position.x,
+                this.position.y,
                 this.width,
                 this.height
             )
@@ -488,28 +496,28 @@ function animate() {
     requestAnimationFrame(animate)
 
     // Clear canvas
-    c.fillStyle = "black"
+    c.fillStyle = "#0a0f1f"
     c.fillRect(0, 0, canvas.width, canvas.height)
 
 
-    const mapWidthPixels = collisionsMap[0].length * blockSize
-    const mapHeightPixels = collisionsMap.length * blockSize
+    // const mapWidthPixels = collisionsMap[0].length * blockSize
+    // const mapHeightPixels = collisionsMap.length * blockSize
 
-    cameraOffset.x = Math.max(
-        0,
-        Math.min(
-            player.position.x - canvas.width / 2 + player.width / 2,
-            mapWidthPixels - canvas.width
-        )
-    )
+    // cameraOffset.x = Math.max(
+    //     0,
+    //     Math.min(
+    //         player.position.x - canvas.width / 2 + player.width / 2,
+    //         mapWidthPixels - canvas.width
+    //     )
+    // )
 
-    cameraOffset.y = Math.max(
-        0,
-        Math.min(
-            player.position.y - canvas.height / 2 + player.height / 2,
-            mapHeightPixels - canvas.height
-        )
-    )
+    // cameraOffset.y = Math.max(
+    //     0,
+    //     Math.min(
+    //         player.position.y - canvas.height / 2 + player.height / 2,
+    //         mapHeightPixels - canvas.height
+    //     )
+    // )
 
     // // Calculate scale to fit the 300px view onto your canvas
     // const scaleX = canvas.width / viewWidth;
