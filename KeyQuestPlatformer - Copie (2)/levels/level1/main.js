@@ -67,7 +67,9 @@ for (let row = 0; row < collisionsMap.length; row++) {
 
 // A Sprite is any image that can be drawn on screen
 // This class handles loading and drawing images
-class Sprite {
+class Sprite { // used to represent any image that can be drawn on the screen
+    //it handles loading the image storing its position drawing it on the canvas
+
     constructor({ position, imageSrc, width, height }) {
         this.position = position //(x,y) cordinates
         this.width = width
@@ -517,7 +519,8 @@ setInterval(() => {
 // ===== SECTION 16: MAIN GAME LOOP =====
 // This function runs 60 times per second and handles all drawing
 function animate() {
-    requestAnimationFrame(animate); // Call this function again next frame
+    //it tells to run the animation before the next screen repaint
+    requestAnimationFrame(animate); // it is used to create the main game loop
 
     if (gameState === "playing") { // clear canva with black
         // Clear canvas
@@ -583,6 +586,7 @@ window.addEventListener("keydown", (event) => {
         if (gameState === "about") {
             gameState = "menu";
         }
+
     }
 
     if (event.key === "Enter") {
@@ -657,4 +661,3 @@ canvas.addEventListener("click", (e) => {
 //make the reset game available globally for html buttons
 window.resetGame = resetGame;
 window.gameState = gameState;
-
