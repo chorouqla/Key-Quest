@@ -582,7 +582,7 @@ window.addEventListener("keydown", (event) => {
     if (event.key === "Esc") {
         if (gameState === "about") {
             gameState = "menu";
-
+        }
     }
 
     if (event.key === "Enter") {
@@ -657,3 +657,4 @@ canvas.addEventListener("click", (e) => {
 //make the reset game available globally for html buttons
 window.resetGame = resetGame;
 window.gameState = gameState;
+
